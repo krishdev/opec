@@ -1,6 +1,6 @@
 var config = {
-	port: 3500,
-	dbconnection: "mongodb://localhost:27017/opec"
+	port: 3000,
+	dbconnection: "mongodb://45.55.129.53/opec"
 };
 
 module.exports = config;
