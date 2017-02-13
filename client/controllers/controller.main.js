@@ -1,10 +1,11 @@
 var Account = require("../models/model.account");
+var Universities = require("../models/model.univ");
 var passport = require("passport");
 var registerUser = function (req, res) {
 	Account.register(new Account({
-			username: req.body.register.email
+			username: req.query.email
 		}),
-		req.body.register.password,
+		req.query.password,
 		function (err, account) {
 			if (err) {
 				console.log(err);
@@ -14,7 +15,6 @@ var registerUser = function (req, res) {
 			}
 			console.log("inside registration")
 			passport.authenticate('local')(req, res, function () {
-				console.log("inside registration authentication")
 				return res.status(200).json({
 					status: 'Registration Successful'
 				});
@@ -77,6 +77,18 @@ var getUserDetails = function (req, res) {
 		});
 
 };
+var insertDataSet = function (req, res) {
+	var university = new Universities(req.query);
+	var dataSet = {
+		country: req.query.country,
+		university: req.query.university,
+		url: req.query.url
+	}
+	university.save(function (err) {
+		res.send('Inserted');
+	});
+	//console.log(req);
+};
 var checkStatus = function (req, res) {
 	if (!req.isAuthenticated()) {
 		return res.status(200).json({
@@ -98,3 +110,4 @@ exports.registerUser = registerUser;
 exports.loginUser = loginUser;
 exports.checkStatus = checkStatus;
 exports.logout = logout;
+exports.insertDataSet = insertDataSet;

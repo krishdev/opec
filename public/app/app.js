@@ -1,4 +1,4 @@
-var opecMain = angular.module('opecMain', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'navbar']);
+var opecMain = angular.module('opecMain', ['ui.router', 'ngSanitize', 'navbar']);
 opecMain.config(function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
@@ -7,4 +7,10 @@ opecMain.config(function ($stateProvider, $urlRouterProvider) {
 			templateUrl: "app/index/tmpl.index.html",
 			controller: "indexCtrl as iCtrl"
 		})
+		/*.state('login', {
+			url: "/login",
+			templateUrl: "app/signIn/tmpl.login.html",
+			controller: "loginCtrl as lCtrl"
+		})*/
+	;
 });

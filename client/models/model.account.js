@@ -6,7 +6,6 @@ var Account = new Schema({
 	username: String,
 	password: String
 });
-
 Account.plugin(passportLocalMongoose);
 console.log('mongoose initialized');
 module.exports = mongoose.model('accounts', Account);
