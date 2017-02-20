@@ -1,5 +1,5 @@
 var config = {
-	port: 3000,
+	port: 80,
 	dbconnection: "mongodb://localhost/opec"
 };
 
